@@ -12,10 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="276f1d9f-d451-4a1c-abf5-fa5bceb3a786" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmark/screenshots/test_suite_2048_O0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/benchmark/screenshots/test_suite_2048_O3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matmul.c" beforeDir="false" afterPath="$PROJECT_DIR$/matmul.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/matmul.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="76" column="1" lean-forward="true" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
+            <state relative-caret-position="91">
+              <caret line="400" lean-forward="true" selection-start-line="400" selection-end-line="400" />
               <folding>
                 <element signature="e#44#62#0" expanded="true" />
               </folding>
@@ -179,10 +177,10 @@
         <option value="$PROJECT_DIR$/utils.h" />
         <option value="$PROJECT_DIR$/utils.c" />
         <option value="$PROJECT_DIR$/matmul.h" />
-        <option value="$PROJECT_DIR$/matmul.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/matmul.c" />
       </list>
     </option>
   </component>
@@ -253,7 +251,7 @@
       <workItem from="1543629149596" duration="19139000" />
       <workItem from="1543732789264" duration="58000" />
       <workItem from="1543733033408" duration="22834000" />
-      <workItem from="1543817191741" duration="3233000" />
+      <workItem from="1543817191741" duration="3479000" />
     </task>
     <task id="LOCAL-00001" summary="finish1">
       <created>1540327342511</created>
@@ -325,14 +323,29 @@
       <option name="project" value="LOCAL" />
       <updated>1543818526073</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add readme and benchmark">
+      <created>1543824976604</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543824976604</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update">
+      <created>1543825270387</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543825270387</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127515000" />
+    <option name="totallyTimeSpent" value="127761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -367,6 +380,7 @@
     <MESSAGE value="finish v_strassen" />
     <MESSAGE value="reorganize include" />
     <MESSAGE value="multi process test" />
+    <MESSAGE value="add readme and benchmark" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
@@ -558,8 +572,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/matmul.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="76" column="1" lean-forward="true" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
+        <state relative-caret-position="91">
+          <caret line="400" lean-forward="true" selection-start-line="400" selection-end-line="400" />
           <folding>
             <element signature="e#44#62#0" expanded="true" />
           </folding>

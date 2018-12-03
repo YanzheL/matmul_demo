@@ -409,7 +409,7 @@ void msub(const double *a, const double *b, double *c, int m, int n, int nn) {
   mx  := the allocated draft zone provided by caller, should be initialized to 0 before first recursion
          length = nn * nn, size = sizeof(double) * nn * nn
  Outputs:
-  c00 := pointer of pointer of the element at result matrix C's UP-LEFT corner
+  c00 := pointer of the element at result matrix C's UP-LEFT corner
 */
 
 void v_strassen(
