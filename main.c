@@ -8,7 +8,7 @@
 
 int main() {
   srand(time(NULL));
-  int min = 8, max = 5000, inc = 1;
+  int min = 32, max = 10000, inc = 32;
   double *a = (double *) calloc(max*max, sizeof(double));
   double *b = (double *) calloc(max*max, sizeof(double));
   double *standard = (double *) calloc(max*max, sizeof(double));
@@ -20,7 +20,7 @@ int main() {
   const int ntests = 12;
   int n;
   pthread_t ts[ntests + 1];
-  for (n = min; n <= max; n <<= 1) {
+  for (n = min; n <= max; n += inc) {
     printf("Begin test suite, current n = %d\n", n);
     memset(standard, 0, sizeof(double)*n*n);
     randfill(a, n, 10, n);
