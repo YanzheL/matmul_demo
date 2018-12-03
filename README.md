@@ -25,7 +25,7 @@
 | mm5_vstrassen_ikj   | Ikj version                      |
 | mm5_vstrassen_ikj_v | partially vectorized Ikj version |
 
-#### V Strassen Core Functions
+#### V Strassen Core
 
 ```c
 /*
@@ -106,3 +106,7 @@ You can modify main.c to change test cases. (e.g. n range)
 2. Without compiler optimization flag, running each test case one-by-one (disable multithread)
 
    ![test_suite_2048_O0.png](benchmark/screenshots/test_suite_2048_O0.png)
+
+
+
+More benchmark results are located at `benchmark` directory
