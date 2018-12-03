@@ -56,12 +56,12 @@
  Inputs:
   a00 := pointer of the element at matrix A's UP-LEFT corner
   b00 := pointer of the element at matrix B's UP-LEFT corner
-  n   := the ORDER of current square window of operation
-  nn  := the ORDER of original matrix before first recursion, this value shouldn't be changed during recursion
+  n   := the size of current square window of operation
+  nn  := the size of original matrix before first recursion, this value shouldn't be changed during recursion
   mx  := the allocated draft zone provided by caller, should be initialized to 0 before first recursion
          length = nn * nn, size = sizeof(double) * nn * nn
  Outputs:
-  c00 := pointer of pointer of the element at result matrix C's UP-LEFT corner
+  c00 := pointer of the element at result matrix C's UP-LEFT corner
 */
 ```
 
@@ -71,15 +71,9 @@
 
 #### Platform Info
 
-OS: 			Ubuntu 18.04
-
-CPU: 		Intel Core i7-8700 		6 Core, 4.6 GHz
-
-​			L1 cache = 384 KiB		L2 cache = 1.5 MiB		L3 cache = 15 MiB
-
-Memory:	DDR4 16GB.
-
-Compiler: 	Clang-8.0
+| OS           | CPU                                                          | Memory            | Compiler  |
+| ------------ | ------------------------------------------------------------ | ----------------- | --------- |
+| Ubuntu 18.04 | Intel Core i7-8700, 6 Core, 4.6 GHz, L1=384 KiB, L2=1.5 MiB, L3=15 MiB | DDR4 16GB 3200MHz | Clang-8.0 |
 
 #### Test cases
 
