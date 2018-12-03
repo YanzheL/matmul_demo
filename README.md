@@ -4,17 +4,17 @@
 
 #### Basic versions
 
-| Function Name       | Description                                            |
-| :------------------ | :----------------------------------------------------- |
-| mm1_ijk             | simple ijk version                                     |
-| mm1_ikj             | simple ikj version                                     |
-| mm1_kji             | simple kji version                                     |
-| mm1_ikj_v           | vectorized version of mm1_ikj, unroll loop by length 8 |
-| mm2                 | aviod 1 load and 1 store in inner iteration            |
-| mm2_v               | vectorized mm2, unroll loop by length 8                |
-| mm4                 | 2 by 2 mini matrix multiplications in registers        |
-| mm4_cache_block_ijk | Cache friendly block multiplication                    |
-| mm4_cache_block_ikj | ikj version of mm4_cache_block                         |
+| Function Name       | Description                                                  |
+| :------------------ | :----------------------------------------------------------- |
+| mm1_ijk             | simple ijk version                                           |
+| mm1_ikj             | simple ikj version                                           |
+| mm1_kji             | simple kji version                                           |
+| mm1_ikj_v           | vectorized version of mm1_ikj, unroll loop by length 8       |
+| mm2                 | aviod 1 load and 1 store in inner iteration                  |
+| mm2_v               | vectorized mm2, unroll loop by length 8                      |
+| mm4                 | 2 by 2 mini matrix multiplications in registers, n must be multiple of 2 |
+| mm4_cache_block_ijk | Cache friendly block multiplication, n must be multiple of BSIZE (32) |
+| mm4_cache_block_ikj | ikj version of mm4_cache_block, n must be multiple of BSIZE (32) |
 
 #### V Strassen Algorithm
 
@@ -99,6 +99,10 @@ You can modify main.c to change test cases. (e.g. n range)
 
 #### Test cases
 
+Use mm1_ijk version as standard result to test other implementation's correctness. If the multiplication result is incorrect, it will output an ERROR message and Mean Square Error (MSE) of the corresponding mm function.
+
+More benchmark results are located at `benchmark` directory
+
 1. With compiler optimization flag -O3, running each test case one-by-one (disable multithread)
 
    ![test_suite_2048_O3](benchmark/screenshots/test_suite_2048_O3.png)
@@ -106,7 +110,3 @@ You can modify main.c to change test cases. (e.g. n range)
 2. Without compiler optimization flag, running each test case one-by-one (disable multithread)
 
    ![test_suite_2048_O0.png](benchmark/screenshots/test_suite_2048_O0.png)
-
-
-
-More benchmark results are located at `benchmark` directory
