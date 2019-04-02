@@ -103,10 +103,10 @@ Use mm1_ijk version as standard result to test other implementation's correctnes
 
 More benchmark results are located at `benchmark` directory
 
-1. With compiler optimization flag -O3, running each test case one-by-one (disable multithread)
+1. With compiler optimization flag -O3, running each test case one-by-one (multithread disabled)
 
    ![test_suite_2048_O3](benchmark/screenshots/test_suite_2048_O3.png)
 
-2. Without compiler optimization flag, running each test case one-by-one (disable multithread)
+2. Without compiler optimization flag, running each test case one-by-one (multithread disabled)
 
    ![test_suite_2048_O0.png](benchmark/screenshots/test_suite_2048_O0.png)
