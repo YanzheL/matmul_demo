@@ -13,7 +13,7 @@
 
 void fill(double *m, int n) {
   int i;
-  for (i = 0; i < n*n; ++i)
+  for (i = 0; i < n * n; ++i)
     m[i] = i;
 //    m[i] = 10;
 }
@@ -21,14 +21,13 @@ void fill(double *m, int n) {
 void randfill(double *m, int n, int max, int nn) {
   int i, j;
   for (i = 0; i < n; ++i)
-    for (j = 0; j < n; ++j) {
-      m[i*nn + j] = rand()%max;
-    }
+    for (j = 0; j < n; ++j)
+      m[i * nn + j] = rand() % max;
 }
 void memset_zone(double *a, int c, int n, int nn) {
   int i;
   for (i = 0; i < n; ++i)
-    memset(a + i*nn, c, sizeof(double)*n);
+    memset(a + i * nn, c, sizeof(double) * n);
 }
 
 void print_mat(const double *m, int n, const char *band, int nn) {
@@ -44,16 +43,16 @@ void print_mat(const double *m, int n, const char *band, int nn) {
 #endif
 }
 
-int check_same(const double *m1, const double *m2, int n, double *mse) {
+int is_equal_mat(const double *m1, const double *m2, int n, double *mse) {
   int i;
   *mse = 0;
-  for (i = 0; i < n*n; ++i) {
+  for (i = 0; i < n * n; ++i) {
     double err = fabs(m1[i] - m2[i]);
-    *mse += err*err;
+    *mse += err * err;
     if (err > 1e-5)
       return 0;
   }
-  *mse /= n*n;
+  *mse /= n * n;
   return 1;
 }
 
@@ -86,21 +85,21 @@ void *tworker(void *p) {
           params->fun(params->a, params->b, (double *) params->standard, params->n, params->n, params->n);,
           display
       );
-      if (params->sem!=NULL)
+      if (params->sem != NULL)
         for (int i = 0; i < params->ntests; ++i)
           sem_post(params->sem);
       break;
     }
     case CONSUMER: {
-      double *c = (double *) calloc(params->n*params->n, sizeof(double));
+      double *c = (double *) calloc(params->n * params->n, sizeof(double));
       TEST_TIME(
           params->fun(params->a, params->b, c, params->n, params->n, params->n);,
           display
       );
-      if (params->sem!=NULL)
+      if (params->sem != NULL)
         sem_wait(params->sem);
       double mse;
-      if (!check_same(params->standard, c, params->n, &mse)) {
+      if (!is_equal_mat(params->standard, c, params->n, &mse)) {
         printf("%s ERROR! mse = %lf\n", display, mse);
 #ifdef PRINT_ERROR
         print_mat(standard, n, "STANDARD", n);
@@ -133,7 +132,7 @@ pthread_t test_std(const double *a,
   pp->sem = slots;
   pp->mode = PRODUCER;
   pp->ntests = ntests;
-  if (slots!=NULL) {
+  if (slots != NULL) {
     pthread_t t;
     pthread_create(&t, NULL, tworker, pp);
     return t;
@@ -161,7 +160,7 @@ pthread_t test_fun(const double *a,
   pp->sem = slots;
   pp->mode = CONSUMER;
   pp->ntests = 0;
-  if (slots!=NULL) {
+  if (slots != NULL) {
     pthread_t t;
     pthread_create(&t, NULL, tworker, pp);
     return t;
@@ -181,11 +180,11 @@ void test_std_mp(const double *a,
                  int ntests) {
 
   int pid;
-  if (slots==NULL)
+  if (slots == NULL)
     pid = 0;
   else
     pid = fork();
-  if (pid==0) {
+  if (pid == 0) {
     char display[100];
     sprintf(display, "PID[%d] n = %d ", getpid(), n);
     strcat(display, name);
@@ -193,7 +192,7 @@ void test_std_mp(const double *a,
         fun(a, b, standard, n, n, n);,
         display
     );
-    if (slots!=NULL) {
+    if (slots != NULL) {
       for (int i = 0; i < ntests; ++i)
         sem_post(slots);
       exit(0);
@@ -211,12 +210,12 @@ void test_fun_mp(const double *a,
                  sem_t *slots) {
 
   int pid;
-  if (slots==NULL)
+  if (slots == NULL)
     pid = 0;
   else
     pid = fork();
-  if (pid==0) {
-    double *c = (double *) calloc(n*n, sizeof(double));
+  if (pid == 0) {
+    double *c = (double *) calloc(n * n, sizeof(double));
     char display[100];
     sprintf(display, "PID[%d] n = %d ", getpid(), n);
     strcat(display, name);
@@ -224,10 +223,10 @@ void test_fun_mp(const double *a,
         fun(a, b, c, n, n, n);,
         display
     );
-    if (slots!=NULL)
+    if (slots != NULL)
       sem_wait(slots);
     double mse;
-    if (!check_same(standard, c, n, &mse)) {
+    if (!is_equal_mat(standard, c, n, &mse)) {
       printf("%s ERROR! mse = %lf\n", display, mse);
 #ifdef PRINT_ERROR
       print_mat(standard, n, "STANDARD", n);
@@ -235,7 +234,7 @@ void test_fun_mp(const double *a,
 #endif
     }
     free(c);
-    if (slots==NULL)
+    if (slots == NULL)
       return;
     else
       exit(0);

@@ -9,9 +9,9 @@
 int main() {
   srand(time(NULL));
   int min = 32, max = 10000, inc = 32;
-  double *a = (double *) calloc(max*max, sizeof(double));
-  double *b = (double *) calloc(max*max, sizeof(double));
-  double *standard = (double *) calloc(max*max, sizeof(double));
+  double *a = (double *) calloc(max * max, sizeof(double));
+  double *b = (double *) calloc(max * max, sizeof(double));
+  double *standard = (double *) calloc(max * max, sizeof(double));
   sem_t *multithread_lock;
 //  sem_t sem;
 //  sem_init(&sem, 2, 0);
@@ -22,7 +22,7 @@ int main() {
   pthread_t ts[ntests + 1];
   for (n = min; n <= max; n += inc) {
     printf("Begin test suite, current n = %d\n", n);
-    memset(standard, 0, sizeof(double)*n*n);
+    memset(standard, 0, sizeof(double) * n * n);
     randfill(a, n, 10, n);
     randfill(b, n, 10, n);
     pthread_t *tp = ts;
@@ -40,7 +40,7 @@ int main() {
         *tp++ = test_fun(a, b, standard, n, mm5_vstrassen_ijk, "mm5_vstrassen_ijk", multithread_lock);
         *tp++ = test_fun(a, b, standard, n, mm5_vstrassen_ikj, "mm5_vstrassen_ikj", multithread_lock);
         *tp++ = test_fun(a, b, standard, n, mm5_vstrassen_ikj_v, "mm5_vstrassen_ikj_v", multithread_lock);
-        for (int i = 0; multithread_lock!=NULL && i < ntests + 1; ++i)
+        for (int i = 0; multithread_lock != NULL && i < ntests + 1; ++i)
           pthread_join(ts[i], NULL);,
         "Total test suite"
     );
