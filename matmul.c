@@ -420,8 +420,8 @@ void v_strassen(
     int nn,
     double *mx,
     void (*basic_mul)(const double *, const double *, double *, int, int, int, int),
-    void madd(const double *, const double *, double *, int, int, int),
-    void msub(const double *, const double *, double *, int, int, int)
+    void (*madd)(const double *, const double *, double *, int, int, int),
+    void (*msub)(const double *, const double *, double *, int, int, int)
 ) {
   if (n <= BSIZE) {
     basic_mul(a00, b00, c00, n, n, n, nn);

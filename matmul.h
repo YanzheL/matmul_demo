@@ -41,8 +41,8 @@ void v_strassen(
     int nn,
     double *mx,
     void (*basic_mul)(const double *, const double *, double *, int, int, int, int),
-    void madd(const double *, const double *, double *, int, int, int),
-    void msub(const double *, const double *, double *, int, int, int)
+    void (*madd)(const double *, const double *, double *, int, int, int),
+    void (*msub)(const double *, const double *, double *, int, int, int)
 );
 
 #endif //MATMUL_DEMO_MATMUL_H
