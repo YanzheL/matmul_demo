@@ -1,6 +1,6 @@
 ## Description
 
-12 different implementations of matrix multiply
+12 different implementations of matrix multiplication
 
 #### Basic versions
 
